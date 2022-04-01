@@ -3,12 +3,15 @@ package com.example.currencyconverter
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.currencyconverter.databinding.MainActivityBinding
 import com.example.currencyconverter.ui.main.MainFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: MainActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +21,9 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow()
         }
+
+        binding = MainActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         GlobalScope.launch(Dispatchers.IO){ // io Это второстепенный поток. Выполнится асинхронно
             val currencies = DependencyInjection.repository.getCurrencies() // этот корутин нужно запускать из вьюшки модели

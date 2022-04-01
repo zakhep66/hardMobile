@@ -1,12 +1,14 @@
 package com.example.currencyconverter.ui.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.example.currencyconverter.DependencyInjection
 import com.example.currencyconverter.R
+
 
 class MainFragment : Fragment() {
 
@@ -14,12 +16,10 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
-    }
+        val viewModelFactory = MainViewModelFactory(DependencyInjection.repository) // пока нет внутреннего хранилища - идёт в сеть
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
     companion object {

@@ -26,9 +26,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         GlobalScope.launch(Dispatchers.IO){ // io Это второстепенный поток. Выполнится асинхронно
-            val currencies = DependencyInjection.repository.getCurrencies() // этот корутин нужно запускать из вьюшки модели
-            Log.d("MY_TAG", "$currencies")
-            Log.d("MY_TAG is success", "${currencies?.rates}")
+
+            try {
+                val currencies = DependencyInjection.repository.getCurrencies()
+                Log.d("MY_TAG", "$currencies")
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.d("MY_TAG", e.localizedMessage)
+            }
+
+//            val currencies = DependencyInjection.repository.getCurrencies() // этот корутин нужно запускать из вьюшки модели
+//            Log.d("MY_TAG", "$currencies")
+//            Log.d("MY_TAG is success", "${currencies?.rates}")
         }
+
     }
 }

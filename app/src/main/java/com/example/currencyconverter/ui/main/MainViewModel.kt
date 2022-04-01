@@ -10,23 +10,18 @@ import com.example.currencyconverter.ui.mapper.CurrencyUiModelMapper
 import com.example.currencyconverter.ui.model.CurrenciesUiModel
 import kotlinx.coroutines.launch
 
-//class MainViewModel(private val repository: Repository) : ViewModel() {
-//
-//    private val liveData = MutableLiveData<CurrenciesUiModel>()
-//
-//    fun init() {
-//        viewModelScope.launch {
-//            repository.getCurrencies()?.let {
-//                liveData.postValue(CurrencyUiModelMapper.mapDomainModelToUiModel(it))
-//            }
-//        }
-//    }
-//
-//}
+class MainViewModel(private val repository: Repository) : ViewModel() { // надстройка с бизнеслогикой
 
-class MainViewModel(private val repository: Repository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MainViewModel(repository) as T
+    private val liveData = MutableLiveData<CurrenciesUiModel>()
+
+
+
+    fun init() {
+        viewModelScope.launch {
+            repository.getCurrencies()?.let {
+                liveData.postValue(CurrencyUiModelMapper.mapDomainModelToUiModel(it))
+            }
+        }
     }
 }
 

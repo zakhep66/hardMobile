@@ -12,14 +12,14 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: Repository) : ViewModel() { // надстройка с бизнеслогикой
 
-    private val liveData = MutableLiveData<CurrenciesUiModel>()
+    val liveData = MutableLiveData<CurrenciesUiModel>()
 
 
 
     fun init() {
         viewModelScope.launch {
             repository.getCurrencies()?.let {
-                liveData.postValue(CurrencyUiModelMapper.mapDomainModelToUiModel(it))
+                liveData.postValue(CurrencyUiModelMapper.mapDomainModelToUiModel(it)) // возвращает
             }
         }
     }

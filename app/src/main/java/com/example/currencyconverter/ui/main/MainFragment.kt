@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.currencyconverter.DependencyInjection
 import com.example.currencyconverter.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainFragment : Fragment() { // TODO добавить ресайклер, в него будут приходить данные
@@ -26,6 +28,7 @@ class MainFragment : Fragment() { // TODO добавить ресайклер, �
         viewModel.liveData.observe(viewLifecycleOwner){ response ->
             Log.d("MY_TAG", response.currencyList.toString())
         }
+
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 

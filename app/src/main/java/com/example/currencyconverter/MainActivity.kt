@@ -3,8 +3,12 @@ package com.example.currencyconverter
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.currencyconverter.databinding.MainActivityBinding
 import com.example.currencyconverter.ui.main.MainFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -15,30 +19,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
-        }
 
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        GlobalScope.launch(Dispatchers.IO){ // io Это второстепенный поток. Выполнится асинхронно
-//
-//            try {
-//                val currencies = DependencyInjection.repository.getCurrencies()
-//                Log.d("MY_TAG", "$currencies")
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//                Log.d("MY_TAG", e.localizedMessage)
-//            }
-
-//            val currencies = DependencyInjection.repository.getCurrencies() // этот корутин нужно запускать из вьюшки модели
-//            Log.d("MY_TAG", "$currencies")
-//            Log.d("MY_TAG is success", "${currencies?.rates}")
+//        setContentView(R.layout.main_activity)
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction() // убрал эту штуку и заработа навегация и приложение в принципе
+//                    .replace(R.id.container, MainFragment.newInstance())
+//                    .commitNow()
 //        }
+
+            val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            val navController = findNavController(R.id.fragment)
+
+            bottomNavigationView.setupWithNavController(navController)
+
+
 
     }
 }

@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setContentView(R.layout.main_activity)
+//        setContentView(R.layout.main_activity) // убрал эту штуку и заработа навегация и приложение в принципе
 //        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction() // убрал эту штуку и заработа навегация и приложение в принципе
+//            supportFragmentManager.beginTransaction()
 //                    .replace(R.id.container, MainFragment.newInstance())
 //                    .commitNow()
 //        }

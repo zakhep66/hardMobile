@@ -22,7 +22,7 @@
             android:id="@+id/currency_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="валюта"
+            android:text="EUR"
             android:textSize="24sp"
             android:textColor="@color/black"
             />

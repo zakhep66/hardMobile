@@ -31,7 +31,7 @@ class ConverterFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            //запись назв валют
+            //запись названий валют
             currencyFrom = it.getString(CURRENCY_FROM)
             currencyTo = it.getString(CURRENCY_TO)
             rate = it.getString(RATE)?.toDouble()
@@ -58,8 +58,8 @@ class ConverterFragment : Fragment() {
         viewModel.currencyUpdateTo(currencyTo)
         viewModel.updateRate(rate)
 
-        viewModel.from.observe(viewLifecycleOwner) { it.let { binding.currencyFromSwap.text = it } }
-        viewModel.to.observe(viewLifecycleOwner) { it.let { binding.currencyToSwap.text = it } }
+//        viewModel.from.observe(viewLifecycleOwner) { it.let { binding.currencyFromSwap.text = it } }
+//        viewModel.to.observe(viewLifecycleOwner) { it.let { binding.currencyToSwap.text = it } }
         viewModel.toVal.observe(viewLifecycleOwner) { it.let { binding.inputTo.hint = it.toString() } }
         viewModel.rate.observe(viewLifecycleOwner) { it.let { binding.inputTo.hint = it.toString() } }
 
@@ -68,10 +68,7 @@ class ConverterFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-//                if (s != "") {
-//                    viewModel.valueUpdateTo(s.toString())
-//                    viewModel.valueUpdateFrom(s.toString())
-//                }
+
                 if (s.isNotBlank()) {
                     viewModel.valueUpdateTo(s.toString())
                     viewModel.valueUpdateFrom(s.toString())

@@ -74,13 +74,6 @@
         tools:ignore="MissingConstraints">
 
 
-        <TextView
-            android:id="@+id/currency_from_swap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EUR"
-            android:textSize="35sp" />
-
         <Button
             android:id="@+id/swap_btn"
             android:layout_width="wrap_content"
@@ -91,12 +84,6 @@
 
             android:text="Swap" />
 
-        <TextView
-            android:id="@+id/currency_to_swap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="USD"
-            android:textSize="35sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

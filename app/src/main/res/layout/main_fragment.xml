@@ -26,29 +26,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/analytic_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="72dp"
+            android:layout_height="52dp"
             android:layout_weight="1"
-            android:text="Analis" />
+            android:src="@drawable/ic_analytics_24" />
 
-        <Button
+        <ImageButton
             android:id="@+id/currency_list_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_weight="1"
-            android:text="CurrentList" />
+            android:src="@drawable/ic_exchange_24" />
 
-        <Button
+        <ImageButton
             android:id="@+id/history_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="72dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="History"
-            />
+            android:src="@drawable/ic_history_24" />
     </LinearLayout>
 
 

@@ -46,7 +46,7 @@ class MainFragment : Fragment(), MainAdapterListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.historyBtn.setOnClickListener {
-            val historyFragment = getFragmentManager()?.beginTransaction()
+            val historyFragment = fragmentManager?.beginTransaction()
             historyFragment?.replace(R.id.container, HistoryFragment())
             historyFragment?.addToBackStack(null)
             historyFragment?.commit()

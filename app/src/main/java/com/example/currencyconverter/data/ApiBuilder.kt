@@ -10,7 +10,8 @@ import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 object ApiBuilder {
-    private const val BASE_URL: String = "http://data.fixer.io/"
+    private const val BASE_URL: String = "http://jsonserver.std-1527.ist.mospolytech.ru/"
+//    private const val BASE_URL: String = "http://data.fixer.io/"
     private val client: OkHttpClient = buildClient()
 
 

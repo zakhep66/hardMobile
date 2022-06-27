@@ -1,11 +1,11 @@
 package com.example.currencyconverter.data
 
 import android.content.Context
-import com.example.currencyconverter.dao.CurrencyDao
-import com.example.currencyconverter.dao.DatabaseApp
-import com.example.currencyconverter.dao.HistoryDao
-import com.example.currencyconverter.repository.LocalDataSource
-import com.example.currencyconverter.repository.RemoteDataSource
+import com.example.currencyconverter.data.dao.CurrencyDao
+import com.example.currencyconverter.data.dao.DatabaseApp
+import com.example.currencyconverter.data.dao.HistoryDao
+import com.example.currencyconverter.data.sources.LocalDataSource
+import com.example.currencyconverter.data.sources.RemoteDataSource
 
 
 object Dependencies {

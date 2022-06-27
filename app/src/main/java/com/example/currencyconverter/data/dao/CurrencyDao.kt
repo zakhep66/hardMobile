@@ -1,4 +1,4 @@
-package com.example.currencyconverter.dao
+package com.example.currencyconverter.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

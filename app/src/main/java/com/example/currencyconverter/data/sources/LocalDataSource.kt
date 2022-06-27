@@ -1,7 +1,7 @@
-package com.example.currencyconverter.repository
+package com.example.currencyconverter.data.sources
 
-import com.example.currencyconverter.dao.CurrencyDao
-import com.example.currencyconverter.dao.HistoryDao
+import com.example.currencyconverter.data.dao.CurrencyDao
+import com.example.currencyconverter.data.dao.HistoryDao
 
 import com.example.currencyconverter.data.model.Currencies
 
@@ -23,6 +23,9 @@ class LocalDataSource(currencyDao: CurrencyDao?, historyDao: HistoryDao?) {
     }
 
     fun loadHistory(): List<HistoryDb>? = localHistoryDao?.getHistory()
+
+    fun getDateFilteredHistory(dateFrom: Long, dateTo: Long): List<HistoryDb> =
+        localHistoryDao!!.getDateFilteredHistory(dateFrom, dateTo)
 
     fun addToHistory(historyItem: HistoryDb) {
         localHistoryDao?.insert(historyItem)

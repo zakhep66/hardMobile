@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.currencyconverter.R
 import com.example.currencyconverter.data.model.dto.HistoryDb
 import java.text.SimpleDateFormat
-import com.example.currencyconverter.R
 import java.util.*
 
 
@@ -49,4 +50,6 @@ class HistoryAdapter(): RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
             SimpleDateFormat("dd.MM.yyyy").format(Date(it.datetime))
         }.toMutableList()
     }
+
+
 }

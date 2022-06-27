@@ -1,7 +1,7 @@
 package com.example.currencyconverter.data
 
-import com.example.currencyconverter.repository.LocalDataSource
-import com.example.currencyconverter.repository.RemoteDataSource
+import com.example.currencyconverter.data.sources.LocalDataSource
+import com.example.currencyconverter.data.sources.RemoteDataSource
 import com.example.currencyconverter.data.model.Currency
 import com.example.currencyconverter.data.model.Currencies
 import com.example.currencyconverter.data.model.dto.CurrencyDb
@@ -43,6 +43,9 @@ suspend fun getCurrencies(): Currencies {
     fun addToHistory(historyItem: HistoryDb) {
         localDataSource.addToHistory(historyItem)
     }
+
+    fun getDateFilteredHistory(dateFrom: Long, dateTo: Long): List<HistoryDb> =
+        localDataSource.getDateFilteredHistory(dateFrom, dateTo)
 
 }
 

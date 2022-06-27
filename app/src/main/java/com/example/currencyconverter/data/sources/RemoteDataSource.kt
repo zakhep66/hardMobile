@@ -1,4 +1,4 @@
-package com.example.currencyconverter.repository
+package com.example.currencyconverter.data.sources
 
 import androidx.annotation.NonNull
 import com.example.currencyconverter.data.CurrencyApi
